@@ -23,6 +23,7 @@ public class MoveCubes : MonoBehaviour
             }
             else if (transform.position != target && !_moved)
             {
+                // 6 минута https://www.youtube.com/watch?v=_DIhTZ35gOk&list=PL0lO_mIqDDFVuqf113xXF-0JaglMUMXCV&index=10
 //                target = new Vector3();
 //                _moved = true;
             }
