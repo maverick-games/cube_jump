@@ -9,7 +9,7 @@ public class MoveCubes : MonoBehaviour
 
     void Start()
     {
-        target = new Vector3(3.056f, -2.98f, -0.723f);
+        target = new Vector3(-2.72f, 4.91f, 0.23f);
     }
 
     // Update is called once per frame
@@ -21,11 +21,18 @@ public class MoveCubes : MonoBehaviour
             {
                 transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * 5f);
             }
-            else if (transform.position != target && !_moved)
+            else if (transform.position == target && !_moved)
             {
-                // 6 минута https://www.youtube.com/watch?v=_DIhTZ35gOk&list=PL0lO_mIqDDFVuqf113xXF-0JaglMUMXCV&index=10
-//                target = new Vector3();
-//                _moved = true;
+                var pos = transform.position;
+                target = new Vector3(pos.x - 2.3f, pos.y + 4f, pos.z);
+                CubeJump.jump = false;
+                _moved = true;
+            }
+
+//
+            if (CubeJump.jump)
+            {
+                _moved = false;
             }
         }
     }
