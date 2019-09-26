@@ -46,8 +46,7 @@ public class CubeJump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!mainCube) return;
-        if (!mainCube.GetComponent<Rigidbody>()) return;
+        if (!mainCube || !mainCube.GetComponent<Rigidbody>())  return;
         if (_readyToJump)
         {
             collapseCube();
@@ -56,7 +55,7 @@ public class CubeJump : MonoBehaviour
 
         expandCube();
 
-        if (!_lose && mainCube.transform.localPosition.y < -18f)
+        if (!_lose && mainCube.transform.position.y < -7f)
         {
             Destroy(mainCube, 1f);
             print("player lose");
@@ -81,7 +80,7 @@ public class CubeJump : MonoBehaviour
     IEnumerator checkCubePos()
     {
         yield return new WaitForSeconds(1f);
-        // Бред проверка
+        //  проверка
 
         if (_yPosCube == Mathf.Round(mainCube.transform.localPosition.y))
         {

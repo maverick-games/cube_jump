@@ -11,6 +11,7 @@ public class GameArrangement : MonoBehaviour
 
     private void Start()
     {
+        // Запустим анимацию главного кубика
         mainCube.GetComponent<Animation>().Play("Main Cube");
     }
 
