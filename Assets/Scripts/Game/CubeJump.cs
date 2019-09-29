@@ -5,6 +5,7 @@ using Vector3 = UnityEngine.Vector3;
 public class CubeJump : MonoBehaviour
 {
     public static bool jump, nextPlatform;
+    public static int countBlocks;
     public GameObject mainCube;
     private bool _readyToJump, _lose;
     private float _defaultLocalScaleY;
@@ -46,7 +47,7 @@ public class CubeJump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!mainCube || !mainCube.GetComponent<Rigidbody>())  return;
+        if (!mainCube || !mainCube.GetComponent<Rigidbody>()) return;
         if (_readyToJump)
         {
             collapseCube();
@@ -97,6 +98,7 @@ public class CubeJump : MonoBehaviour
 
             if (!_lose)
             {
+                countBlocks++;
                 nextPlatform = true;
                 print("next platform");
             }
