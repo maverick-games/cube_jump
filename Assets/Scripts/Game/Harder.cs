@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Harder : MonoBehaviour
 {
+    public GameObject detectCLicks;
     private bool hardMode;
+
 
     // Update is called once per frame
     void Update()
@@ -12,17 +14,19 @@ public class Harder : MonoBehaviour
         if (CubeJump.countBlocks == 0) return;
         if (CubeJump.countBlocks % 2 == 0 && !hardMode)
         {
-            // https://www.youtube.com/watch?v=kdI6lSFFB9I&list=PL0lO_mIqDDFVuqf113xXF-0JaglMUMXCV&index=12&t=3s
-            // 5 минута
             hardMode = true;
             print("hard mode");
             Camera.main.GetComponent<Animation>().Play("Hard");
+            detectCLicks.transform.position = new Vector3(24.5f, 17.8f, -13.7f);
+            detectCLicks.transform.eulerAngles = new Vector3(34.1f, -65.2f, 2.3f);
         }
         else if (CubeJump.countBlocks % 3 == 0 && hardMode)
         {
             hardMode = false;
             print("easy mode");
             Camera.main.GetComponent<Animation>().Play("Easy");
+            detectCLicks.transform.position = new Vector3(2.11f, 10.3f, -20f);
+            detectCLicks.transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
 }

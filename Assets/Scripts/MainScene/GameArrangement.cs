@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,8 +7,8 @@ public class GameArrangement : MonoBehaviour
 {
     public GameObject buttons, scene, mainCube, cubes;
     public GameObject[] cubesForRemove;
-    public Text gameName, playText;
-    private bool _gameStart;
+    public Text gameName, playText, hint;
+    private bool _gameStart, _hintActive;
 
     private void Start()
     {
@@ -17,7 +18,15 @@ public class GameArrangement : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (_hintActive)
+        {
+            hint.gameObject.SetActive(false);
+            _hintActive = false;
+        }
+
         if (_gameStart) return;
+        _hintActive = true;
+        hint.gameObject.SetActive(true);
         _gameStart = true;
         startGame();
     }
