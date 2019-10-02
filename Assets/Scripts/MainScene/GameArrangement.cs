@@ -7,7 +7,7 @@ public class GameArrangement : MonoBehaviour
 {
     public GameObject buttons, scene, mainCube, cubes;
     public GameObject[] cubesForRemove;
-    public Text gameName, playText, hint;
+    public Text gameName, playText, hint, record;
     private bool _gameStart, _hintActive;
 
     private void Start()
@@ -25,6 +25,7 @@ public class GameArrangement : MonoBehaviour
         }
 
         if (_gameStart) return;
+        record.gameObject.SetActive(true);
         _hintActive = true;
         hint.gameObject.SetActive(true);
         _gameStart = true;

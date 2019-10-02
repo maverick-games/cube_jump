@@ -6,7 +6,7 @@ public class CubeJump : MonoBehaviour
 {
     public static bool jump, nextPlatform;
     public static int countBlocks;
-    public GameObject mainCube;
+    public GameObject mainCube, loseButtons, buttons;
     private bool _readyToJump, _lose;
     private float _defaultLocalScaleY;
     private float _collapseSpeed = 0.5f;
@@ -62,6 +62,17 @@ public class CubeJump : MonoBehaviour
             print("player lose");
             _lose = true;
         }
+
+        if (_lose) playerLose();
+    }
+
+    private void playerLose()
+    {
+        https: //www.youtube.com/watch?v=qBNQj-Fi6mM&list=PL0lO_mIqDDFVuqf113xXF-0JaglMUMXCV&index=13&t=0s
+        // 12 минута (проверка)
+        buttons.GetComponent<ScrollObjects>().checkPos = 0;
+        buttons.GetComponent<ScrollObjects>().speed = -5f;
+        loseButtons.GetComponent<ScrollObjects>().checkPos = 0;
     }
 
     private void collapseCube()
@@ -88,6 +99,8 @@ public class CubeJump : MonoBehaviour
             print("player lose");
             _lose = true;
         }
+
+        if (_lose) playerLose();
         else
         {
             while (!mainCube.GetComponent<Rigidbody>().IsSleeping())
