@@ -70,8 +70,9 @@ public class CubeJump : MonoBehaviour
     {
         https: //www.youtube.com/watch?v=qBNQj-Fi6mM&list=PL0lO_mIqDDFVuqf113xXF-0JaglMUMXCV&index=13&t=0s
         // 12 минута (проверка)
+        buttons.GetComponent<ScrollObjects>().speed = 5f;
         buttons.GetComponent<ScrollObjects>().checkPos = 0;
-        buttons.GetComponent<ScrollObjects>().speed = -5f;
+        loseButtons.GetComponent<ScrollObjects>().speed = -10f;
         loseButtons.GetComponent<ScrollObjects>().checkPos = 0;
     }
 
