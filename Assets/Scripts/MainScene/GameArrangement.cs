@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameArrangement : MonoBehaviour
 {
-    public GameObject buttons, scene, mainCube, cubes;
+    public GameObject buttons, scene, mainCube, cubes, diamonds;
     public GameObject[] cubesForRemove;
     public Text gameName, playText, hint, record;
     private bool _gameStart, _hintActive;
@@ -25,6 +25,7 @@ public class GameArrangement : MonoBehaviour
         }
 
         if (_gameStart) return;
+        diamonds.gameObject.SetActive(true);
         record.gameObject.SetActive(true);
         _hintActive = true;
         hint.gameObject.SetActive(true);
