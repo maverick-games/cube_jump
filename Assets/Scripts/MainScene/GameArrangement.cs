@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +24,8 @@ public class GameArrangement : MonoBehaviour
         }
 
         if (_gameStart) return;
+        // записать текущее количество собранных кристалов
+        diamonds.transform.GetComponentInChildren<Text>().text = PlayerPrefs.GetInt("Diamond").ToString();
         diamonds.gameObject.SetActive(true);
         record.gameObject.SetActive(true);
         _hintActive = true;

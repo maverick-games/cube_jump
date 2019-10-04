@@ -43,8 +43,6 @@ public class SpawnBlocks : MonoBehaviour
 
         if (CubeJump.countBlocks % 2 == 0)
         {
-            // https://www.youtube.com/watch?v=BgPiKw8Q6Xk&list=PL0lO_mIqDDFVuqf113xXF-0JaglMUMXCV&index=14&t=108s
-            // 10 минута
             // Делаем алмазик дочерним элементом платформы, чтобы они вместе катались)
             GameObject diamondInst = Instantiate(diamond,
                 new Vector3(platformInst.transform.position.x, platformInst.transform.position.y + 0.5f,

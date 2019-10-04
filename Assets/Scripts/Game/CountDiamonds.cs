@@ -8,6 +8,6 @@ public class CountDiamonds : MonoBehaviour
     void Start()
     {
         _text.GetComponent<Text>();
-        _text.text = PlayerPrefs.GetInt("Diamonds").ToString();
+        _text.text = PlayerPrefs.GetInt("Diamond").ToString();
     }
 }
