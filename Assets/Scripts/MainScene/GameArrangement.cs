@@ -59,7 +59,7 @@ public class GameArrangement : MonoBehaviour
                 // Полуошибка говорит что слишком дорогой метод вызывается в цикле
                 // Нашел статейку почитать когда дойдет дело
                 // https://docs.microsoft.com/ru-ru/windows/mixed-reality/performance-recommendations-for-unity
-                startGame(cubesForRemove[i]);
+                cubeToPlatform(cubesForRemove[i]);
                 continue;
             }
 
@@ -71,7 +71,7 @@ public class GameArrangement : MonoBehaviour
     }
 
 
-    private void startGame(GameObject cube)
+    private void cubeToPlatform(GameObject cube)
     {
         cube.GetComponent<Animation>().Play("CubeToPlatform");
         mainCube.AddComponent<Rigidbody>();

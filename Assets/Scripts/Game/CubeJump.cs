@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -59,7 +60,6 @@ public class CubeJump : MonoBehaviour
         if (!_lose && mainCube.transform.position.y < -7f)
         {
             Destroy(mainCube, 1f);
-            print("player lose");
             _lose = true;
         }
 
@@ -68,8 +68,7 @@ public class CubeJump : MonoBehaviour
 
     private void playerLose()
     {
-        https: //www.youtube.com/watch?v=qBNQj-Fi6mM&list=PL0lO_mIqDDFVuqf113xXF-0JaglMUMXCV&index=13&t=0s
-        // 12 минута (проверка)
+        CubeJump.jump = false;
         buttons.GetComponent<ScrollObjects>().speed = 5f;
         buttons.GetComponent<ScrollObjects>().checkPos = 0;
         loseButtons.GetComponent<ScrollObjects>().speed = -10f;
@@ -93,11 +92,8 @@ public class CubeJump : MonoBehaviour
     IEnumerator checkCubePos()
     {
         yield return new WaitForSeconds(1f);
-        //  проверка
-
         if (_yPosCube == Mathf.Round(mainCube.transform.localPosition.y))
         {
-            print("player lose");
             _lose = true;
         }
 
@@ -114,7 +110,6 @@ public class CubeJump : MonoBehaviour
             {
                 countBlocks++;
                 nextPlatform = true;
-                print("next platform");
             }
 
             if (mainCube)
